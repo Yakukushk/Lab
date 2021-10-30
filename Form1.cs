@@ -106,10 +106,7 @@ namespace LabCalculator1
 
 
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -123,31 +120,7 @@ namespace LabCalculator1
 
         }
 
-        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
-
-        }
-       
+        
 
         
 
@@ -262,10 +235,7 @@ namespace LabCalculator1
             AddRow();
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
+       
 
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -337,10 +307,7 @@ namespace LabCalculator1
             
         }
         
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
  }
 
