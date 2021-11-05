@@ -239,43 +239,22 @@ namespace LabCalculator1
 
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Stream str = null;
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                if ((str = openFileDialog1.OpenFile()) != null)
-                {
-                    StreamReader myread = new StreamReader(str);
-                    string[] mystr;
-                    int num = 0;
-                    try
-                    {
-                        string[] str1 = myread.ReadToEnd().Split('\n');
-                        num = str1.Count();
-                        dataGridView1.RowCount = num;
-                        for (int i = 0; i < num; i++)
-                        {
-                            mystr = str1[i].Split('^');
-                            for (int j = 0; j < dataGridView1.ColumnCount - 1; j++)
-                            {
-                                try
-                                {
-                                    dataGridView1.Rows[i].Cells[j].Value = mystr[j];
-                                }
-                                catch { }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        myread.Close();
-                    }
-                }
-            }
+           OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "DGridFile|*.grd";
+            openFileDialog.Title = "Select Grid File";
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            StreamReader sr = new StreamReader(openFileDialog.FileName);
+            GR.Clear();
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            Int32.TryParse(sr.ReadLine(), out int row);
+            Int32.TryParse(sr.ReadLine(), out int col);
+            InitTable(row, col);
+            GR.Open(row, col, sr, dataGridView1);
+            sr.Close();
         }
+        
 
         private void зберегтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
